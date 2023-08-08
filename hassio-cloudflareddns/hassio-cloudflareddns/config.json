@@ -1,0 +1,23 @@
+{
+  "name": "Hassio Cloudflare DDNS",
+  "version": "1.0",
+  "slug": "hassio-cloudflareddns",
+  "description": "Dynamic DNS for Cloudlfare on Home Assistant",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "url": "https://github.com/oryx960/hassio-cloudflareddns",
+  "startup": "system",
+  "boot": "auto",
+
+  "options": {
+    "zone": "",
+    "host": "",
+    "email": "",
+    "api": ""
+  },
+  "schema": {
+    "zone": "str",
+    "host": "str",
+    "email": "str",
+    "api": "str"
+  }
+} 
