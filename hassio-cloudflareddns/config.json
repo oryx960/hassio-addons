@@ -1,0 +1,52 @@
+{
+    "name": "Cloudflare DDNS",
+    "version": "1.0.0",
+    "slug": "cloudflareddns",
+    "description": "Update Cloudflare DDNS records.",
+    "startup": "before",
+    "docker": {
+        "image": "cloudflareddns.py",
+        "privileged": false,
+        "network_mode": "host"
+    },
+    "options": [
+        {
+            "name": "api_key",
+            "required": true,
+            "description": "Cloudflare API key",
+            "type": "string"
+        },
+        {
+            "name": "zone_id",
+            "required": true,
+            "description": "Cloudflare Zone ID",
+            "type": "string"
+        },
+        {
+            "name": "record_id",
+            "required": true,
+            "description": "Cloudflare DNS Record ID",
+            "type": "string"
+        },
+        {
+            "name": "record_type",
+            "required": true,
+            "description": "DNS record type (A or CNAME)",
+            "type": "string",
+            "options": ["A", "CNAME"]
+        },
+        {
+            "name": "record_name",
+            "required": true,
+            "description": "DNS record name",
+            "type": "string"
+        },
+        {
+            "name": "update_interval",
+            "required": true,
+            "description": "Update interval in seconds",
+            "type": "integer",
+            "default": 3600
+        }
+    ]
+}
