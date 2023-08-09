@@ -4,49 +4,52 @@
     "slug": "cloudflareddns",
     "description": "Update Cloudflare DDNS records.",
     "startup": "before",
+    "boot": "auto",
     "docker": {
-        "image": "oryx960/cloudflareddns:v1.0.0",
+        "image": "oryx9760/cloudflareddns:v1.0.0",
         "privileged": false,
         "network_mode": "host"
     },
-    "options": [
-        {
-            "name": "api_key",
+    "options": {
+        "api_key": "",
+        "zone_id": "",
+        "record_id": "",
+        "record_type": "A",
+        "record_name": "",
+        "update_interval": 3600
+    },
+    "schema": {
+        "api_key": {
             "required": true,
-            "description": "Cloudflare API key",
-            "type": "string"
-        },
-        {
-            "name": "zone_id",
-            "required": true,
-            "description": "Cloudflare Zone ID",
-            "type": "string"
-        },
-        {
-            "name": "record_id",
-            "required": true,
-            "description": "Cloudflare DNS Record ID",
-            "type": "string"
-        },
-        {
-            "name": "record_type",
-            "required": true,
-            "description": "DNS record type (A or CNAME)",
             "type": "string",
+            "description": "Cloudflare API key"
+        },
+        "zone_id": {
+            "required": true,
+            "type": "string",
+            "description": "Cloudflare Zone ID"
+        },
+        "record_id": {
+            "required": true,
+            "type": "string",
+            "description": "Cloudflare DNS Record ID"
+        },
+        "record_type": {
+            "required": true,
+            "type": "string",
+            "description": "DNS record type (A or CNAME)",
             "options": ["A", "CNAME"]
         },
-        {
-            "name": "record_name",
+        "record_name": {
             "required": true,
-            "description": "DNS record name",
-            "type": "string"
+            "type": "string",
+            "description": "DNS record name"
         },
-        {
-            "name": "update_interval",
+        "update_interval": {
             "required": true,
-            "description": "Update interval in seconds",
             "type": "integer",
+            "description": "Update interval in seconds",
             "default": 3600
         }
-    ]
+    }
 }
