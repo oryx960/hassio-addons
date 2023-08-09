@@ -5,7 +5,7 @@
     "description": "Update Cloudflare DDNS records.",
     "startup": "before",
     "docker": {
-        "image": "oryx9760/cloudflareddns",
+        "image": "oryx9760/cloudflareddns:v1.0.0",
         "privileged": false,
         "network_mode": "host"
     },
